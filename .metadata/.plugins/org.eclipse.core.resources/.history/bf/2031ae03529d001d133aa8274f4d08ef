@@ -1,0 +1,8 @@
+package dao;
+
+public interface AdminDao {
+	void addPosition(String userName, String password, String name, int phone, String address);
+	
+	
+
+}

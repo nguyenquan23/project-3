@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Trang chủ</title>
+<style type="text/css">
+.form-delete{
+display:  flex;
+justify-content: center;
+flex-wrap: wrap;
+ 
+} 
+.input{
+margin-bottom: 15px;
+}
+.titile{
+text-align:  center;
+}
+</style>
+</head>
+<body>
+ <h1 class="titile">THÊM THANH TRA</h1>
+ <div class ="form-delete">
+ 
+<form action="DeleteStudentServlet" method="get">
+
+<label>Tài Khoản</label>
+ <div class="input">
+ <input type="text" name="deleteId">
+</div>
+<label> Mật Khẩu</label>
+ <div class="input">
+<input type="text" name="deletehoten">
+ </div>
+ <label> Tên</label>
+ <div class="input">
+ <input type="text" name="deletehoten">
+ </div>
+ <label> Số Điện Thoại </label>
+ <div class="input">
+<input type="text" name="deletehoten">
+ </div>
+ <label> Mã Chức Vụ</label>
+ <div class="input">
+ <input type="text" name="deletehoten">
+ </div>
+  
+  <div class="input">
+ <input type="submit" value="xacnhanthemtaikhoan">
+ <input type="reset" value="reset">
+  </div>
+ </form>
+ </div>
+</body>
+</html>

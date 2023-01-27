@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [25/Jan/2023:00:00:00 +0700] "GET /laptrinhdoan/login HTTP/1.1" 200 2574
+0:0:0:0:0:0:0:1 - - [25/Jan/2023:00:00:02 +0700] "POST /laptrinhdoan/admin-checklogin HTTP/1.1" 200 10241
+0:0:0:0:0:0:0:1 - - [25/Jan/2023:00:00:02 +0700] "GET /laptrinhdoan/template/paging/jquery.twbsPagination.js HTTP/1.1" 404 738
+0:0:0:0:0:0:0:1 - - [25/Jan/2023:00:00:02 +0700] "GET /laptrinhdoan/ckeditor/ckeditor.js HTTP/1.1" 404 714
+0:0:0:0:0:0:0:1 - - [25/Jan/2023:00:00:06 +0700] "GET /laptrinhdoan/views/admin/add.jsp HTTP/1.1" 200 4215
+0:0:0:0:0:0:0:1 - - [25/Jan/2023:00:00:09 +0700] "POST /laptrinhdoan/admin-register-Inspector HTTP/1.1" 500 1769

@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+.form-delete{
+display:  flex;
+justify-content: center;
+flex-wrap: wrap;
+ 
+} 
+.input{
+margin-bottom: 15px;
+}
+.titile{
+text-align:  center;
+}
+</style>
+</head>
+<body>
+ <h1 class="titile">THÊM THANH TRA</h1>
+ <div class ="form-delete">
+ 
+<form action="DeleteStudentServlet" method="get">
+
+ <div class="input">
+ Ma sv<input type="text" name="deleteId">
+</div>
+ <div class="input">
+ ho ten <input type="text" name="deletehoten">
+ </div>
+  <div class="input">
+gioitinh <input name="deleteGender" type="radio" value="Nam" />Nam
+<input name="deleteGender" type="radio" value="Nu" />Nu
+</div>
+ <div class="input">
+ khoa <input type="text" name="deletekhoa">
+ </div>
+  <div class="input">
+ <input type="submit" value="xacnhan">
+  </div>
+ </form>
+ </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+package dao;
+
+import org.hibernate.Session;
+
+public class HibernateAdminDao extends AbstractHibernateDao implements AdminDao {
+	private String ADD_POSITION = "CALL p_Them_ThanhTra(:username,:password,:name,:phone,:address)";
+	@Override
+	public void addPosition(String userName, String password, String name, int phone, String address) {
+		Session session = openSession();
+		session.beginTransaction();
+		session.createSQLQuery(ADD_POSITION).setParameter("username", userName)
+		                                    .setParameter("password", password)
+		                                    .setParameter("name", name)
+		                                    .setParameter("phone", phone)
+		                                    .setParameter("address", address)
+		                                    .executeUpdate();
+		                                    
+	
+		session.getTransaction().commit();
+	
+ 
+		
+	}
+
+}

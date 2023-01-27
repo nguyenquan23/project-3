@@ -1,0 +1,46 @@
+package controller.admin;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import persistence.Admin;
+import service.AdminService;
+import service.AdminServiceImpl;
+import service.PositionService;
+
+@WebServlet(urlPatterns = { "admin-register-Inspector", "admin-inter" })
+public class HomeController extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static AdminService adminService;
+ static {
+	  adminService = new AdminServiceImpl();
+ }
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String userName = req.getParameter("username");
+		String password = req.getParameter("password");
+		String name = req.getParameter("name");
+		int phone = req.getParameter("phone");
+		String address = req.getParameter("aaddress");
+		adminService.add(userName, password, name, phone, address);
+		
+	
+		
+	}
+
+}
