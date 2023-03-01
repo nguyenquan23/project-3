@@ -44,7 +44,7 @@
             <b class="arrow"></b>
             <ul class="submenu">
                 <li>
-                    <a href='<c:url value="/admin-views"/>'>
+                    <a href='<c:url value="/admin-views?action=view"/>'>
                         <i class="menu-icon fa fa-caret-right"></i>
                           XEM TẤT CẢ CÁC THÔNG TIN TÀI KHOẢN
                     </a>
@@ -53,7 +53,7 @@
             </ul>
             <ul class="submenu">
                 <li>
-                    <a href='<c:url value="/views/admin/add.jsp"/>'>
+                    <a href='<c:url value="/admin-new?action=addInspect"/>'>
                         <i class="menu-icon fa fa-caret-right"></i>
                    THÊM TÀI KHOẢN THANH TRA
                     </a>
@@ -105,6 +105,28 @@
                     <b class="arrow"></b>
                 </li>
             </ul>
+        </li>
+    </ul>
+    <ul class="nav nav-list">
+        <li >
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-list"></i>
+                <span class="menu-text"></span>
+                Quản lý thông báo
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li>
+                    <a href='<c:url value="/admin-views?action=view"/>'>
+                        <i class="menu-icon fa fa-caret-right"></i>
+                          XEM TẤT CẢ CÁC THÔNG BÁO
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+            </ul>
+            
+            
         </li>
     </ul>
     <div class="sidebar-toggle sidebar-collapse">

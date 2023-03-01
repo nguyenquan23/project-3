@@ -11,36 +11,60 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.PositionService;
 import service.PositionServiceImpl;
+import utils.SessionUtil;
 
-
-@WebServlet(urlPatterns = {"/login","/admin-checklogin"})
+@WebServlet(urlPatterns = { "/login", "/checklogin", "/logout" })
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static PositionService positionService;
-	static{
+	static {
 		positionService = new PositionServiceImpl();
 	}
-	
 
-  
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("views/login.jsp");
-		rd.forward(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String action = request.getParameter("action");
+		String message = request.getParameter("message");
+		String alert = request.getParameter("alert");
+		if(action != null && "login".equals(action)) {
+			RequestDispatcher rd = request.getRequestDispatcher("views/login.jsp");
+			rd.forward(request, response);
+		}
+		if(message != null && alert != null) {
+			request.setAttribute("message", "login fail password username invalid");
+			request.setAttribute("alert", alert);
+			RequestDispatcher rd = request.getRequestDispatcher("views/login.jsp");
+			rd.forward(request, response);
+		}
+		
+		if (action != null && "logout".equals(action)) {
+			SessionUtil.getInstance().removeValue(request, "userName");
+			RequestDispatcher rd = request.getRequestDispatcher("views/login.jsp");
+			rd.forward(request, response);
+		}
+
+		
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
-		
+		String action	=	request.getParameter("action");
 		RequestDispatcher rd;
+		if(action != null && action == "login") {
+	 rd = request.getRequestDispatcher("views/login.jsp");
+			rd.forward(request, response);
+		}
 	if(positionService.checkLogin(userName, password)) {
-		rd = getServletContext().getRequestDispatcher("/views/admin/home.jsp");
+		SessionUtil.getInstance().putValue(request, "userName", userName);
+	
+		response.sendRedirect(request.getContextPath()+"/views/admin/home.jsp");
 	}
 	else {
-		 rd = getServletContext().getRequestDispatcher("/views/login.jsp");
+		response.sendRedirect(request.getContextPath()+"/login?action=login&message=fail&alert=danger");
+		
 	}
-	rd.forward(request, response);
+	
 	
 		
 	}

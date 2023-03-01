@@ -1,0 +1,61 @@
+.header{
+	display: flex;
+	flex-wrap: nowrap;
+	text-align: center;
+	background-image: url(http://ccatvstp.hanoi.gov.vn/dvc/apps/cores/vfa/images/Banner.png);
+
+
+	
+}
+.nav{
+	flex: 30%;
+	display: flex;
+ flex-wrap: nowrap;
+ float: right;
+}
+.caption{
+	display: block;
+	flex:70%;
+
+}
+body{
+	background-image: url(	http://ccatvstp.hanoi.gov.vn/dvc/apps/cores/vfa/images/slider.png);
+}
+h1{
+	display: inline-block;
+	text-align: center;
+	color: #193a8d;
+	font-family: 'OpenSansExtra';
+}
+
+.subnav{
+	margin-top: 30px;
+	display: inline-block;
+	padding-top: 10px;
+	width: 70px;
+	background-color: #193a8d;
+    margin-left: 30px;
+    text-align: center;
+    vertical-align: middle;
+    border: 2px;
+    border-radius: 4px;
+    color: #fff;
+    height: 30px;
+
+}
+.information{
+	height: 400px;
+	width: 400px;
+	
+
+}
+.tag-a{
+	background-color: #193a8d;
+	text-decoration: none;
+	
+}
+label{
+	font-family: 'OpenSansExtra';
+	color: #333;
+	text-transform: uppercase;
+}

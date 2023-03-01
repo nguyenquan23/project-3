@@ -10,7 +10,7 @@ import persistence.Position;
 
 public class HibernatePositionDao extends AbstractHibernateDao implements PositionDao{
 	private String GET_ALL_POSITIONS = "SELECT * FROM chucvu ";
-	private String CHECK_LOGIN ="SELECT * FROM admin WHERE tendangnhap = :username AND matkhau = :password";
+	private String CHECK_LOGIN ="SELECT * FROM admin WHERE tai_khoan = :username AND mat_khau = :password";
 	@Override
 	public boolean checkLogin(String userName ,String password) {
 		Session session = openSession();
@@ -18,7 +18,7 @@ public class HibernatePositionDao extends AbstractHibernateDao implements Positi
 		query.setParameter("username",userName );
 		query.setParameter("password",password);
 		List<Admin> list = query.getResultList();
-		if(list == null) {
+		if(list.size() == 0) {
 		 return false;
 		}
 		

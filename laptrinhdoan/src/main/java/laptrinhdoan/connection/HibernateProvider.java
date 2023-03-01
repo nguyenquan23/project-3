@@ -37,7 +37,7 @@ public class HibernateProvider {
 		Properties props = new Properties();
 		
 		props.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-		props.put(Environment.URL, "jdbc:mysql://localhost:3306/foodmanagement");
+		props.put(Environment.URL, "jdbc:mysql://localhost:3306/foodsafetymanagement");
 		props.put(Environment.USER, "root");
 		props.put(Environment.PASS, "quan1234");
 		

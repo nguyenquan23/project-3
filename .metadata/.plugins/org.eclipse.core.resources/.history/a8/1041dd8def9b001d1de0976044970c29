@@ -1,7 +1,0 @@
-package dao;
-
-public interface AdminDao {
-	boolean Add(String userName, String password, String name, int phone, String address);
-	
-
-}
