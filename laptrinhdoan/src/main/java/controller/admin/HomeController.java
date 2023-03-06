@@ -10,11 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import persistence.Admin;
+
 import static dao.AbstractHibernateDao.*;
 import service.AdminService;
 import service.AdminServiceImpl;
+import utils.SessionUtil;
 
-@WebServlet(urlPatterns = { "/admin-register-Inspector", "/admin-views", "/admin-update", "/admin-new" })
+@WebServlet(urlPatterns = { "/admin-register-Inspector", "/admin-views", "/admin-update", "/admin-new",
+		"/admin-change" })
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -31,48 +35,65 @@ public class HomeController extends HttpServlet {
 			req.setAttribute("listInspect", adminService.getAllInspect());
 			RequestDispatcher rd = req.getRequestDispatcher("/views/admin/view.jsp");
 			rd.forward(req, resp);
-			
+
 		}
-		
+
 		else if (req.getParameter("action").equals("addInspect")) {
 
 			RequestDispatcher rd = req.getRequestDispatcher("/views/admin/add.jsp");
 			rd.forward(req, resp);
-			
-		} 
-		
+
+		}
+
 		else if (req.getParameter("action").equals("delete")) {
-			
+
 			String id = req.getParameter("inspectId");
 			adminService.deleteInspect(id);
 			req.setAttribute("listInspect", adminService.getAllInspect());
 			RequestDispatcher rd = req.getRequestDispatcher("/views/admin/view.jsp");
 			rd.forward(req, resp);
-			
+
 		}
-		
+
 		else if (req.getParameter("action").equals("edit")) {
-			
+
 			String id = req.getParameter("inspectId");
 			req.setAttribute("inspect", adminService.getInspect(id));
 			RequestDispatcher rd = req.getRequestDispatcher("/views/admin/viewInspect.jsp");
 			rd.forward(req, resp);
-			
-		} 
-		
+
+		}
+
 		else if (req.getParameter("action").equals("update")) {
-		
+
 			String id = req.getParameter("inspectId");
-			
+
 			String name = req.getParameter("name");
-		     convert(name);
+			convert(name);
 			int phone = Integer.parseInt(req.getParameter("phone"));
 			String address = req.getParameter("address");
 			convert(address);
 			adminService.updateInspect(name, phone, address, id);
 			RequestDispatcher rd = req.getRequestDispatcher("/views/admin/viewInspect.jsp");
+
+		} else if (req.getParameter("action").equals("change")) {
+			String id = req.getParameter("inspectId");
+			String name = req.getParameter("username");
+			String password = req.getParameter("password");
+			adminService.changeAccountPassword(id, name, password);
+			req.setAttribute("listInspect", adminService.getAllInspect());
+			RequestDispatcher rd = req.getRequestDispatcher("/views/admin/view.jsp");
+			rd.forward(req, resp);
+
+		} else if (req.getParameter("action").equals("viewAdmin")) {
+			String username = (String) SessionUtil.getInstance().getValue(req, "userName");
 			
+			req.setAttribute("admin",  adminService.getAdmin(username));
+			RequestDispatcher rd = req.getRequestDispatcher("/views/admin/adminview.jsp");
+			rd.forward(req, resp);
+
 		}
+		
 //		if (req.getParameter("idInspect") != null) {
 //
 //			String name = req.getParameter("name");
@@ -92,18 +113,18 @@ public class HomeController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		if (req.getParameter("username") != null) {
 			String userName = req.getParameter("username");
-			
+
 			String password = req.getParameter("password");
-			
+
 			String name = convert(req.getParameter("name"));
-			
+
 			int phone = Integer.parseInt(req.getParameter("phone"));
 			String address = req.getParameter("address");
-		
 
 			System.out.println(userName + password + name + phone + address);
 
 			adminService.addPosition(userName, password, name, phone, address);
+
 			RequestDispatcher rd = req.getRequestDispatcher("/views/admin/home.jsp");
 			rd.forward(req, resp);
 		}

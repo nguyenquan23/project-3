@@ -41,6 +41,16 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public List<Admin> getAdmin() {
 		
-		return adminDao.getAdmin();
+		return adminDao.getAllAdmin();
+	}
+	
+	
+	@Override
+	public void changeAccountPassword(String id, String username, String password) {
+		adminDao.changeAccountPassword(id, username, password);
+	}
+	@Override
+	public Admin getAdmin(String username) {
+		return adminDao.getAdmin(username);
 	}
 }

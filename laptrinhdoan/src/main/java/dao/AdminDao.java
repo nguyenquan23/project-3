@@ -11,8 +11,10 @@ public interface AdminDao {
     void deleteInspect(String id);
     Inspect getInspect(String id);
     void updateInspect(String name, int phone, String address, String id);
-    List<Admin> getAdmin();
-	void changeAccountPassword(String id);
+    List<Admin> getAllAdmin();
+	void changeAccountPassword(String id,String username, String password);
+	Admin getAdmin(String username);
+	
 	
 
 }

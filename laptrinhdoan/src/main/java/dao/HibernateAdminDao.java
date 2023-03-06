@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 
 import persistence.Admin;
 import persistence.Inspect;
+import utils.SessionUtil;
 
 public class HibernateAdminDao extends AbstractHibernateDao implements AdminDao {
 	private String ADD_INSPECT = "CALL p_Them_ThanhTra(:username,:password,:name,:phone,:address)";
@@ -15,7 +16,10 @@ public class HibernateAdminDao extends AbstractHibernateDao implements AdminDao 
 	private String GET_ALL_INSPECT = "SELECT * FROM thanh_tra";
 	private String GET_INSPECT = "SELECT * FROM thanh_tra WHERE id = :id";
 	private String UPDATE_INSPECT = "UPDATE  thanh_tra SET ten = :name ,sodienthoai = :phone, diachi =:address WHERE id =:id ";
-	private String GET_ADMIN = "SELECT * FROM admin";
+	private String UPDATE_INSPECT_PASSWORD_USERNAME = "UPDATE  thanh_tra SET tai_khoan = :username ,mat_khau = :password WHERE id =:id ";
+	private String GET_ALL_ADMIN = "SELECT * FROM admin";
+	private String GET_ADMIN ="SELECT * FROM admin WHERE tai_khoan = :username";
+	// private String GET_PASSWORD_AND_ACCOUNT = ""
 
 	@Override
 	public void addPosition(String userName, String password, String name, int phone, String address) {
@@ -63,16 +67,36 @@ public class HibernateAdminDao extends AbstractHibernateDao implements AdminDao 
 	public void updateInspect(String name, int phone, String address, String id) {
 		Session session = openSession();
 		session.beginTransaction();
-		session.createSQLQuery(UPDATE_INSPECT).setParameter("name", name).setParameter("phone", "567")
+		session.createSQLQuery(UPDATE_INSPECT).setParameter("name", name).setParameter("phone", phone)
 				.setParameter("address", address).setParameter("id", id).executeUpdate();
 		session.getTransaction().commit();
 	}
 
 	@Override
-	public List<Admin> getAdmin() {
+	public List<Admin> getAllAdmin() {
 		Session session = openSession();
-		NativeQuery<Admin> admins = session.createNativeQuery(GET_ADMIN, Admin.class);
-	  List<Admin> result = admins.getResultList();
-	  return result;
+		NativeQuery<Admin> admins = session.createNativeQuery(GET_ALL_ADMIN, Admin.class);
+		List<Admin> result = admins.getResultList();
+		return result;
 	}
+
+	@Override
+	public void changeAccountPassword(String id,String username, String password) {
+		Session session = openSession();
+		session.beginTransaction();
+		session.createSQLQuery(UPDATE_INSPECT_PASSWORD_USERNAME).setParameter("username", username).setParameter("password", password).
+		setParameter("id", id).executeUpdate();
+session.getTransaction().commit();
+		
+
+	}
+	@Override
+	public Admin getAdmin(String username) {
+		Session session = openSession();
+		NativeQuery<Admin> admin = session.createNativeQuery(GET_ADMIN,Admin.class).setParameter("username", username);
+		List<Admin> results = admin.getResultList();
+		results.toString();
+		return results.get(0);
+	}
+	
 }

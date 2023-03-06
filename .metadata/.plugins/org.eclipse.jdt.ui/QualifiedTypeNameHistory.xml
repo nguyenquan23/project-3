@@ -43,8 +43,6 @@
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="dao.AbstractHibernateDao"/>
     <fullyQualifiedTypeName name="java.nio.charset.StandardCharsets"/>
-    <fullyQualifiedTypeName name="org.hibernate.query.NativeQuery"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="persistence.Admin"/>
     <fullyQualifiedTypeName name="service.AdminService"/>
     <fullyQualifiedTypeName name="service.AdminServiceImpl"/>
@@ -54,8 +52,10 @@
     <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
     <fullyQualifiedTypeName name="persistence.Position"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="persistence.Inspect"/>
-    <fullyQualifiedTypeName name="org.hibernate.Session"/>
     <fullyQualifiedTypeName name="utils.SessionUtil"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.hibernate.Session"/>
+    <fullyQualifiedTypeName name="org.hibernate.query.NativeQuery"/>
+    <fullyQualifiedTypeName name="persistence.Inspect"/>
 </qualifiedTypeNameHistroy>

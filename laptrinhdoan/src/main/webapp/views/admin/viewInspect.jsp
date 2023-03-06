@@ -97,16 +97,19 @@
    
      
       <div class="form-field col-lg-6 ">
+      <label >Tên</label>
          <input id="company" class="input-text js-input" type="text" required name="name" value="<%=inspect.getName()%>">
-         <label class="label" for="company">Tên</label>
+        
       </div>
        <div class="form-field col-lg-6 ">
+       <label >Số điện thoại</label>
          <input id="phone" class="input-text js-input" type="text" required name="phone" value="<%=inspect.getPhone() %>">
-         <label class="label" for="phone">Số Điện Thoại</label>
+        
       </div>
       <div class="form-field col-lg-12">
+      <label >Địa chỉ</label>
          <input id="message" class="input-text js-input" type="text" required name="address" value="<%=inspect.getAddress() %>">
-         <label class="label" for="message">Địa Chỉ</label>
+      
       </div>
       
       

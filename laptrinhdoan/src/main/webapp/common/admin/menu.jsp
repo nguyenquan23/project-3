@@ -46,65 +46,21 @@
                 <li>
                     <a href='<c:url value="/admin-views?action=view"/>'>
                         <i class="menu-icon fa fa-caret-right"></i>
-                          XEM TẤT CẢ CÁC THÔNG TIN TÀI KHOẢN
+                          XEM TẤT CẢ CÁC THÔNG TIN TÀI KHOẢN THANH TRA
                     </a>
                     <b class="arrow"></b>
                 </li>
             </ul>
             <ul class="submenu">
                 <li>
-                    <a href='<c:url value="/admin-new?action=addInspect"/>'>
+                    <a href='<c:url value="/admin-views?action=viewAdmin"/>'>
                         <i class="menu-icon fa fa-caret-right"></i>
-                   THÊM TÀI KHOẢN THANH TRA
+                          XEM TẤT CẢ CÁC THÔNG TIN TÀI KHOẢN CỦA MÌNH
                     </a>
                     <b class="arrow"></b>
                 </li>
             </ul>
-            <ul class="submenu">
-                <li>
-                    <a href='<c:url value="/admin-new?type=list&page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'>
-                        <i class="menu-icon fa fa-caret-right"></i>
-                     XÓA TÀI KHOẢN THANH TRA
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-            </ul>
-            <ul class="submenu">
-                <li>
-                    <a href='<c:url value="/admin-new?type=list&page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'>
-                        <i class="menu-icon fa fa-caret-right"></i>
-                     THAY ĐỔI MẬT KHẨU TÀI KHOẢN THANH TRA
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-            </ul>
-            <ul class="submenu">
-                <li>
-                    <a href='<c:url value="/admin-new?type=list&page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'>
-                        <i class="menu-icon fa fa-caret-right"></i>
-                    THAY ĐỔI THÔNG TIN TÀI KHOẢN THANH TRA
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-            </ul>
-            <ul class="submenu">
-                <li>
-                    <a href='<c:url value="/admin-new?type=list&page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'>
-                        <i class="menu-icon fa fa-caret-right"></i>
-                     XEM THÔNG TIN TÀI KHOẢN CỦA MÌNH
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-            </ul>
-            <ul class="submenu">
-                <li>
-                    <a href='<c:url value="/admin-new?type=list&page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'>
-                        <i class="menu-icon fa fa-caret-right"></i>
-                    THAY ĐỔI THÔNG TIN TÀI KHOẢN CỦA MÌNH
-                    </a>
-                    <b class="arrow"></b>
-                </li>
-            </ul>
+           
         </li>
     </ul>
     <ul class="nav nav-list">
